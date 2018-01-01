@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Lab 11</title>
+        <meta name="description" content="Lab 11">
+        <link rel="stylesheet" href="main.css">
+    </head>
+    <body>
+        
+        <h1 id="text">This is the 1st OnLoad</h1>
+       
+            <img id="img" alt="Fires image" src="fries.jpg" />
+       
+        <button id="b" class="button">Load image</button>
+        
+    </body>
+    
+    <script>
+    var loadCounter = 0;
+    var str = '';
+        
+    img.onload = function loaded(){
+        if (++loadCounter > 1){
+            str = getOrd(loadCounter);
+            text.innerHTML = 'This is the ' + str + ' OnLoad';
+            document.body.style.backgroundColor = '#0083e8';
+        }
+        else {
+            document.body.style.backgroundColor = 'clear';
+        }
+    }
+    
+    img.src = 'fries.jpg';
+    
+    b.onclick = function loadImage(){
+        img.src = 'fries.jpg';
+    }
+    
+    function getOrd(n) {
+        var s=["th","st","nd","rd"],
+        v=n%100;
+        return n+(s[(v-20)%10]||s[v]||s[0]);
+    }
+    
+  </script>
+    
+</html>
